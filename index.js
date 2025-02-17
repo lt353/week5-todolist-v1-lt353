@@ -1,5 +1,8 @@
 //jshint esversion:6
 
+//I know this is not the assignment, I just wanted to try out how this works
+//so I'll try out doing a pull request. - Lindsay
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
