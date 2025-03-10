@@ -1,6 +1,6 @@
 //jshint esversion: 6
 
-  //get the system date 
+// This gets the system date. don't run this, it is used by index.js
 
 module.exports.getDate = getDate;
 
@@ -12,7 +12,7 @@ function getDate() {
     let options = {
         weekday: "long",
         day: "numeric",
-        month: "long",
+        month: "numeric",
         year: "numeric"
     };
     

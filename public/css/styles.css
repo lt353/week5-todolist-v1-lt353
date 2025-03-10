@@ -1,8 +1,31 @@
 html {
   background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  /*I changed the color scheme a bit to go with the new images*/
+  background-image: -webkit-linear-gradient(65deg, #087f9d 50%, #E4E9FD 50%);
   min-height: 1000px;
   font-family: 'Verdana';
+}
+
+/* The <nav> section will display buttons in a row instead of stacking them */
+nav {
+  /* Arranges the buttons in a row that wont wrap over on top of each other when the screen is small*/
+  display: flex; 
+  gap: 10px; /* Adds space of 10px between buttons */
+}
+
+/* Styling for the navigation buttons */
+.nav-button {
+  text-decoration: none; /* Removes the underline from links */
+  padding: 10px 15px; /* Adds space inside the button (top-bottom: 10px, left-right: 15px) */
+  background-color: #1c429a; /* Sets the button color to a dark blue */
+  color: white;
+  border-radius: 5px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes the mouse cursor to a pointer when hovering - ChatGPT helped with this*/
+}
+
+/* Changes the button color when hovered over */
+.nav-button:hover {
+  background-color: rgb(56, 176, 240); /* Light blue color appears when the user hovers over the button */
 }
 
 h1 {
@@ -19,7 +42,7 @@ h1 {
 }
 
 #heading {
-  background-color: #A683E3;
+  background-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
   text-align: center;
 }
 
@@ -36,7 +59,7 @@ h1 {
 
 input:checked+p {
   text-decoration: line-through;
-  text-decoration-color: #A683E3;
+  text-decoration-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
 }
 
 input[type="checkbox"] {
@@ -61,8 +84,8 @@ button {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
-  color: #fff;
+  background-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
+  color: #ffff;
   font-size: 30px;
   padding-bottom: 6px;
   border-width: 0;
@@ -81,7 +104,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
 }
 
 ::placeholder {
@@ -90,7 +113,5 @@ input[type="text"]:focus {
 }
 
 footer {
-  color: white;
-  color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }

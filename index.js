@@ -1,59 +1,84 @@
 //jshint esversion:6
 
+/*
+ * Assignment: To-do List with Multiple Categories
+ * Description: 
+ * - This is a simple To-Do List app using Express, and EJS.
+ * - The original code was provided by the professor and included a default to-do list and a work list.
+ * - I added functionality for two new categories: Fun and Weekend.
+ * - Now, users can manage different types of tasks under separate lists.
+ * 
+ * Author: Debasis Bhattacharya mostly
+ *         Lindsay Trenton for just the parts that create /fun and /weekend
+ * Date: February 11, 2025
+ * 
+ * External Packages Used:
+ * - express (http://www.npmjs.com/package/express)
+ * - body-parser (http://www.npmjs.com/package/body-parser)
+ * - ejs (https://www.npmjs.com/package/ejs)
+ */
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
-// create a date object that requires the date.js file
-const date = require(__dirname + "/date.js");
-
 const app = express();
+const port = 3000;
 
-// set an array for the default items in the list
-let items = ["Buy Food", "Prepare Food", "Cook Food", "Eat Food"];
-// set an empty array for new work items
-let workItems = ["Show Up", "Get Settled"];
+// Set EJS as the templating engine
+app.set("view engine", "ejs");
 
-// set EJS as the viewing engine to display html
-app.set('view engine', 'ejs');
+// Use the body-parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// use body parser to parse html file
-app.use(bodyParser.urlencoded({extended: true}));
-// use Express to serve or display static files such as images, CSS, JS files etc.
+// Serve static files from the "public" directory
 app.use(express.static("public"));
 
+// Arrays to store items for different lists
+let items = ["Buy Food", "Prepare Food", "Cook Food", "Eat Food", "Clean Plates"];
+let workItems = ["Show Up", "Get Settled", "Drink Coffee"];
+let funItems = ["Go Swimming", "Read a Book", "Watch Severance", "Listen to Music"];
+let weekendItems = ["Mow the Lawn", "Go to Costco", "Prep for Next Weeks Class", "Meal Prep"];
 
-// default html file in web server
+// Default route for the main list
 app.get("/", function(req, res) {
-
-    //get the system date from the getDate function exported by the date.js file
-    let day = date.getDate();
-    
-    // use EJS render to display the day and the To Do List
-    res.render("list", {listTitle: day, newListItems: items});
-    
+  res.render("list", { listTitle: "Today", newListItems: items });
 });
 
-// display default to do list on the default root folder
+// Route for the work list
+app.get("/work", function(req, res) {
+  res.render("list", { listTitle: "Work", newListItems: workItems });
+});
+
+// Route for the fun list
+app.get("/fun", function(req, res) {
+  res.render("list", { listTitle: "Fun", newListItems: funItems });
+});
+
+// Route for the weekend list
+app.get("/weekend", function(req, res) {
+  res.render("list", { listTitle: "Weekend", newListItems: weekendItems });
+});
+
+// Handle form submissions
 app.post("/", function(req, res) {
-    
-    
-    // code allows items to be added to the regular list and work list
-    let item = req.body.newItem;
-    
-    if (req.body.list === "Work") {
-        workItems.push(item);
-        res.redirect("/work");
-    } else {
-        items.push(item);
-        res.redirect("/");
-    }
+  let item = req.body.newItem;
+  let list = req.body.list;
+
+  if (list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else if (list === "Fun") {
+    funItems.push(item);
+    res.redirect("/fun");
+  } else if (list === "Weekend") {
+    weekendItems.push(item);
+    res.redirect("/weekend");
+  } else {
+    items.push(item);
+    res.redirect("/");
+  }
 });
 
-// display default to do list on the localhost:3000/work route!
-app.get("/work", function(req, res){
-    res.render("list", {listTitle: "Work To Do List", newListItems: workItems})
-});
-
-app.listen(3000, function() {
-console.log ("Server is running on port 3000")
+app.listen(port, function() {
+  console.log(`Server running on port ${port}`);
 });
