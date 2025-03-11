@@ -1,0 +1,150 @@
+    html {
+      background-color: #E4E9FD;
+      /*I changed the color scheme a bit to go with the new images*/
+      background-image: -webkit-linear-gradient(65deg, #087f9d 50%, #E4E9FD 50%);
+      min-height: 1000px;
+      font-family: 'Verdana';
+    }
+
+    /* The <nav> section will display buttons in a row instead of stacking them */
+    nav {
+      /* Arranges the buttons in a row that wont wrap over on top of each other when the screen is small*/
+      display: flex; 
+      gap: 10px; /* Adds space of 10px between buttons */
+    }
+
+    /* Styling for the navigation buttons */
+    .nav-button {
+      text-decoration: none; /* Removes the underline from links */
+      padding: 10px 15px; /* Adds space inside the button (top-bottom: 10px, left-right: 15px) */
+      background-color: #1c429a; /* Sets the button color to a dark blue */
+      color: white;
+      border-radius: 5px; /* Rounds the corners of the button */
+      cursor: pointer; /* Changes the mouse cursor to a pointer when hovering - ChatGPT helped with this*/
+    }
+
+    /* Changes the button color when hovered over */
+    .nav-button:hover {
+      background-color: rgb(56, 176, 240); /* Light blue color appears when the user hovers over the button */
+    }
+
+    h1 {
+      color: #fff;
+      padding: 10px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    #heading {
+      background-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
+      text-align: center;
+    }
+
+    .item {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked+p {
+      text-decoration: line-through;
+      text-decoration-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      font-size: 20px;
+      font-weight: 200;
+      color: #00204a;
+    }
+
+    form {
+      text-align: center;
+      margin-left: 20px;
+    }
+
+    button {
+      min-height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border-color: transparent;
+      background-color: rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
+      color: #ffff;
+      font-size: 30px;
+      padding-bottom: 6px;
+      border-width: 0;
+    }
+
+    input[type="text"] {
+      text-align: center;
+      height: 60px;
+      top: 10px;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      font-weight: 200;
+      width: 313px;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: inset 0 -3px 0 0 rgb(56, 176, 240); /*I changed the color scheme a bit to go with the new images*/
+    }
+
+    ::placeholder {
+      color: grey;
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+    }
+kground-color: #a683e3;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #a683e3;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
