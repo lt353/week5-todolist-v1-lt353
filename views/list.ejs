@@ -1,28 +1,11 @@
-<!-- Include the header partial -->
-<%- include("header") -%>
+<%- include("header") %>
 
-<!-- Section for the list title -->
-<div class="box" id="heading">
-    <h1><%= listTitle %></h1>
-  </div>
-  <div class="box">
-    <!-- List of items in the list
-    Loop through the newListItems array and display each item 
-    as a div with a checkbox and a paragraph element 
-    This uses the EJS syntax for embedding JavaScript code
-    -->
-    <% newListItems.forEach(function(item) { %> <!--forEach is a method that executes a provided function once for each array element-->
-      <div class="item">
-        <input type="checkbox">
-        <p><%= item %></p>
-      </div>
+<h1><%= listTitle %></h1>
+
+<ul>
+    <% newListItems.forEach(item => { %>
+        <li><%= item %></li>
     <% }); %>
-    <!-- Form for adding a new item to the list, with listTitle as a hidden input -->
-    <form class="item" action="/" method="post">
-      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-      <button type="submit" name="list" value="<%= listTitle %>">+</button>
-    </form>
-  </div>
+</ul>
 
-<!-- Include the footer partial again -->
-<%- include("footer") -%>
+<%- include("footer") %>
