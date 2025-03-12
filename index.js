@@ -18,7 +18,7 @@
  * - ejs (https://www.npmjs.com/package/ejs)
  */
 
-// Note to just see how it works to push to github from here
+// Note to just see how it works to push to dgithub from here
 
 const express = require("express");
 const bodyParser = require("body-parser");
